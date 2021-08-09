@@ -1,6 +1,6 @@
 import { createStore} from 'vuex';
 
-const store = createStore({
+export default createStore({
     state : {
         
     },
@@ -14,7 +14,3 @@ const store = createStore({
         
     }
 });
-
-export {
-    store
-}

@@ -1,16 +1,22 @@
 <template>
   <Header></Header>
+  <Body></Body>
 </template>
 
 <script>
 import Header from './views/Header.vue';
+import Body from './views/Body.vue';
 
 export default {
   name: 'App',
   components : {
-    Header    
+    Header,
+    Body   
+  },
+  created : function() {
+    console.info('asdf');
   }
 }
 </script>
 
-<style scoped src="@/assets/css/ko/user-style.css"></style>
+<style src="./assets/css/ko/user-style.css"></style>
