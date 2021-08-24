@@ -6,6 +6,7 @@
 <script>
 import Header from './views/Header.vue';
 import Body from './views/Body.vue';
+import { geopolicy } from './api/mock.js'
 
 export default {
   name: 'App',
@@ -13,9 +14,10 @@ export default {
     Header,
     Body   
   },
-  created : function() {
-    console.info('asdf');
-    
+  beforeCreate() {
+    geopolicy().then(({data}) => {
+        this.$store.commit('SET_GEOPOLICY', data);
+    });
   }
 }
 </script>
