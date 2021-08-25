@@ -34,6 +34,9 @@ export default createStore({
             login().then(({data}) => {
                 commit('SET_LOGIN', data.success);
             });
+        },
+        LOGOUT({commit}) {
+            commit('SET_LOGIN', false);
         }
     }
 });

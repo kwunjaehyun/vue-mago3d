@@ -1,24 +1,11 @@
 <template>
-  <Header></Header>
-  <Body></Body>
+  <router-view></router-view>
 </template>
 
 <script>
-import Header from './views/Header.vue';
-import Body from './views/Body.vue';
-import { geopolicy } from './api/mock.js'
 
 export default {
-  name: 'App',
-  components : {
-    Header,
-    Body   
-  },
-  beforeCreate() {
-    geopolicy().then(({data}) => {
-        this.$store.commit('SET_GEOPOLICY', data);
-    });
-  }
+  name: 'App'
 }
 </script>
 

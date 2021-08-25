@@ -1,29 +1,31 @@
 import {createRouter, createWebHistory} from 'vue-router';
-import App from '../App.vue';
+import Main from '../views/Main.vue';
 import Signin from '../views/sign/Signin.vue';
-import store from '../store/index.js';
-
-const testAuthCheck = (from, to, next) => {
-    const isLogin = store.state.isLogin;
-    if(!isLogin){
-        return next('/sign/signin');
-    } 
-    console.info(1);
-    return next();
-}
+import {checkAuth} from '@/api/auth.js'
+import store from '@/store/index.js';
 
 export default createRouter({
     history : createWebHistory(),
     routes : [
         {
             path : "/",
-            name : "App",
-            component : App,
-            beforeEnter : testAuthCheck
+            name : "Main",
+            component : Main,
+            beforeEnter : checkAuth
         },
         {
-            path : '/sign/signin',
+            path: '/sign/signin',
             component : Signin
+        }
+        ,
+        {
+            path: '/sign/signout',
+            component : {
+                beforeRouteEnter(to, from, next) {
+                    store.dispatch("LOGOUT");
+                    return next('/sign/signin');
+                }
+            }
         }
     ]
 });

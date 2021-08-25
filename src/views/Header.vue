@@ -5,11 +5,10 @@
       </a>
       <div class="gnb">
           <ul>
-              <li>
-                  <router-link to="/guide/help" title="API 도움말">API 도움말</router-link>
-              </li>
               <li class="user">
-                  <router-link to="/sign/signin" title="Sign In">Sign In</router-link>
+                  <!--a v-if="isLogin" title="Sign Out">Sign Out</a-->
+                  <router-link v-if="isLogin" to="/sign/signout" title="Sign Out">Sign Out</router-link>
+                  <router-link v-else to="/sign/signin" title="Sign In">Sign In</router-link>
               </li>
           </ul>
       </div>
@@ -18,7 +17,11 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            isLogin: this.$store.state.isLogin
+        }
+    }
 }
 </script>
 
