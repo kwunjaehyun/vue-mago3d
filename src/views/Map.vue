@@ -31,8 +31,18 @@ export default {
             this.geopolicy.initLatitude = 37.52361393000871;
             this.geopolicy.initLongitude = 126.92941546440123;
 
+            var viewerOption = {};
+            viewerOption.defaultControl = {};
+            viewerOption.defaultControl.zoom = false;
+            viewerOption.defaultControl.initCamera = false;
+            viewerOption.defaultControl.fullScreen = false;
+            viewerOption.defaultControl.measure = false;
+            viewerOption.defaultControl.tools = false;
+            viewerOption.defaultControl.attribution = true;
+            viewerOption.defaultControl.overviewMap = false;
+
             const Mago3D = this.Mago3D;
-            const instance = new Mago3D.Mago3d('magoContainer', this.geopolicy);
+            const instance = new Mago3D.Mago3d('magoContainer', this.geopolicy, undefined, viewerOption);
             this.$store.commit('SET_MAGOINSTANCE', instance);
         }
     }

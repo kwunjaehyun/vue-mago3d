@@ -11,7 +11,24 @@ export default createRouter({
             path : "/",
             name : "Main",
             component : Main,
-            beforeEnter : checkAuth
+            beforeEnter : checkAuth,
+            children: [
+                {
+                    path: "data"
+                },
+                {
+                    path: "converter"
+                },
+                {
+                    path: "simulation"
+                },
+                {
+                    path: "iot"
+                },
+                {
+                    path: "spatial"
+                },
+            ]
         },
         {
             path: '/sign/signin',
