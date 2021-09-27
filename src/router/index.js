@@ -4,6 +4,12 @@ import Signin from '../views/sign/Signin.vue';
 import {checkAuth} from '@/api/auth.js'
 import store from '@/store/index.js';
 
+import Data from '../components/contents/Data.vue';
+import Converter from '../components/contents/Converter.vue';
+import Simulation from '../components/contents/Simulation.vue';
+import Iot from '../components/contents/Iot.vue';
+import Spatial from '../components/contents/Spatial.vue';
+
 export default createRouter({
     history : createWebHistory(),
     routes : [
@@ -14,19 +20,24 @@ export default createRouter({
             beforeEnter : checkAuth,
             children: [
                 {
-                    path: "data"
+                    path: "data",
+                    component: Data
                 },
                 {
-                    path: "converter"
+                    path: "converter",
+                    component: Converter
                 },
                 {
-                    path: "simulation"
+                    path: "simulation",
+                    component: Simulation
                 },
                 {
-                    path: "iot"
+                    path: "iot",
+                    component: Iot
                 },
                 {
-                    path: "spatial"
+                    path: "spatial",
+                    component: Spatial
                 },
             ]
         },
